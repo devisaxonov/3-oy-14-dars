@@ -4,7 +4,7 @@ class UserController {
   constructor() {
     this.userService = new UserService();
   }
-  async createUserController(req, res, next) {
+  async createUser(req, res, next) {
     try {
       const body = req.body;
       const data = await this.userService.createUser(body);
@@ -13,7 +13,7 @@ class UserController {
       next(error);
     }
   }
-  async getAllUsersController(req, res, next) {
+  async getAllUsers(req, res, next) {
     try {
       const data = await this.userService.getAllUsers();
       res.status(200).json({ message: "success", data });
@@ -21,7 +21,7 @@ class UserController {
       next(error);
     }
   }
-  async getOneUsersController(req, res, next) {
+  async getOneUsers(req, res, next) {
     try {
       const data = await this.userService.getOneUser(req.params.id);
       res.status(200).json({ message: "success", data });
@@ -29,7 +29,7 @@ class UserController {
       next(error);
     }
   }
-  async updateUserController(req, res, next) {
+  async updateUser(req, res, next) {
     try {
       const body = req.body;
       const data = await this.userService.updateUser(body, req.params.id);
@@ -38,9 +38,9 @@ class UserController {
       next(error);
     }
   }
-  async deleteUserController(req, res, next) {
+  async deleteUser(req, res, next) {
     try {
-      await this.userService.deleteuser(req.params.id);
+      await this.userService.deleteUser(req.params.id);
       res.status(200).json({ message: "success" });
     } catch (error) {
       next(error);

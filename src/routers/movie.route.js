@@ -4,21 +4,10 @@ import MovieController from "../controllers/movie.controller.js";
 const movieRouter = Router();
 const controller = new MovieController();
 
-movieRouter.post("/addmovie", controller.addMovieController.bind(controller));
-movieRouter.get(
-  "/getallmovies",
-  controller.getAllMoviesController.bind(controller)
-);
-movieRouter.get(
-  "/getmovie/:id",
-  controller.getOneMovieController.bind(controller)
-);
-movieRouter.put(
-  "/updatemovie/:id",
-  controller.updateMovieController.bind(controller)
-);
-movieRouter.delete(
-  "/deletemovie/:id",
-  controller.deleteMovieController.bind(controller)
-);
+movieRouter.post("/movie", controller.addMovie.bind(controller));
+movieRouter.get("/movies",controller.getAllMovies.bind(controller));
+movieRouter.get("/movie/:id",controller.getOneMovie.bind(controller));
+movieRouter.put("/movie/:id",controller.updateMovie.bind(controller));
+movieRouter.delete("/movie/:id", controller.deleteMovie.bind(controller));
+
 export default movieRouter;

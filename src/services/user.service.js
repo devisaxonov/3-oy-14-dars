@@ -39,12 +39,12 @@ class UserService {
       .select({ password: 0 });
     return newUser;
   }
-  async deleteuser(id) {
-    if (!id) throw new CustomError("Id berib yuborilmagan", 403);
+  async deleteUser(id) {
+    if (!id) throw new CustomError("Id not found", 403);
     const findUser = await this.userModel.findById(id);
     console.log(findUser);
     if (!findUser)
-      throw new CustomError("Bunday Id dagi user mavjud emas", 404);
+      throw new CustomError("ID Invalid", 404);
     await this.userModel.deleteOne({ _id: id });
   }
 }

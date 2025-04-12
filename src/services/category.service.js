@@ -26,9 +26,9 @@ class CategoryService {
   }
   async updateCategory(data, id) {
     await this.validationService.updateCategoryValidation(data);
-    const findcategory = await this.categoryModel.findById(id);
-    if (!findcategory)
-      throw new CustomError("Bunday id da categoriya mavjud emas", 404);
+    const findCategory = await this.categoryModel.findById(id);
+    if (!findCategory)
+      throw new CustomError("Bu Id da categoriya mavjud emas", 404);
     const ans = await this.categoryModel.findByIdAndUpdate(
       id,
       { $set: data },

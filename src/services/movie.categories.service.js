@@ -1,5 +1,5 @@
 import { CategoriesModel } from "../models/categories.model.js";
-import { MovieCategoriesModel } from "../models/movie_categories.model.js";
+import { MovieCategoriesModel } from "../models/movie.categories.model.js";
 import { MovieModel } from "../models/movies.model.js";
 import CustomError from "../utils/custom.error.js";
 

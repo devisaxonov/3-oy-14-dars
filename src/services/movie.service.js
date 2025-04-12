@@ -18,7 +18,7 @@ class MovieService {
     const data = await this.movieModel.findById(id);
     return data;
   }
-  async updatemovie(id, data) {
+  async updateMovie(id, data) {
     const updatedMovie = await this.movieModel.findByIdAndUpdate(id, data);
     return updatedMovie;
   }

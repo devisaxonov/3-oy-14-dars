@@ -5,7 +5,7 @@ class ValidationService {
   async movieValidation(data) {
     try {
       const schema = joi.object({
-        title: joi.string().min(2).max(50).required(),
+        title: joi.string().min(8).max(150).required(),
         release_year: joi.number().required(),
         description: joi.string().required(),
         duration: joi.number().required(),
@@ -18,7 +18,7 @@ class ValidationService {
   async movieUpdateValidation(data) {
     try {
       const schema = joi.object({
-        title: joi.string().min(2).max(50).optional(),
+        title: joi.string().min(8).max(150).optional(),
         release_year: joi.number().optional(),
         description: joi.string().optional(),
         duration: joi.number().optional(),
@@ -31,7 +31,7 @@ class ValidationService {
   async createUserValidation(data) {
     try {
       const schema = joi.object({
-        username: joi.string().min(2).max(50).required(),
+        username: joi.string().min(8).max(150).required(),
         email: joi.string().email().required(),
         password: joi.string().min(5).required(),
       });
@@ -43,7 +43,7 @@ class ValidationService {
   async updateUserValidation(data) {
     try {
       const schema = joi.object({
-        username: joi.string().min(2).max(50).optional(),
+        username: joi.string().min(5).max(50).optional(),
         email: joi.string().email().optional(),
       });
       await schema.validateAsync(data);
@@ -54,8 +54,8 @@ class ValidationService {
   async createCategoryValidation(data) {
     try {
       const schema = joi.object({
-        name: joi.string().min(2).required(),
-        description: joi.string().min(3).required(),
+        name: joi.string().min(5).required(),
+        description: joi.string().min(15).required(),
       });
       await schema.validateAsync(data);
     } catch (error) {
@@ -65,8 +65,8 @@ class ValidationService {
   async updateCategoryValidation(data) {
     try {
       const schema = joi.object({
-        name: joi.string().min(2).optional(),
-        description: joi.string().min(3).optional(),
+        name: joi.string().min(5).optional(),
+        description: joi.string().min(15).optional(),
       });
       await schema.validateAsync(data);
     } catch (error) {

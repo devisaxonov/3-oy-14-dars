@@ -4,7 +4,7 @@ class CategoryController {
   constructor() {
     this.categoryService = new CategoryService();
   }
-  async createCategoryController(req, res, next) {
+  async createCategory(req, res, next) {
     try {
       const body = req.body;
       const data = await this.categoryService.createCategory(body);
@@ -13,7 +13,7 @@ class CategoryController {
       next(error);
     }
   }
-  async getAllCategoryController(req, res, next) {
+  async getAllCategory(req, res, next) {
     try {
       const data = await this.categoryService.getAllCategory();
       res.status(200).json({ message: "success", data });
@@ -21,7 +21,7 @@ class CategoryController {
       next(error);
     }
   }
-  async getOneCategoryController(req, res, next) {
+  async getOneCategory(req, res, next) {
     try {
       const data = await this.categoryService.getOneCategory(req.params.id);
       res.status(200).json({ message: "success", data });
@@ -29,7 +29,7 @@ class CategoryController {
       next(error);
     }
   }
-  async updateCategoryController(req, res, next) {
+  async updateCategory(req, res, next) {
     try {
       const body = req.body;
       const data = await this.categoryService.updateCategory(
@@ -41,7 +41,7 @@ class CategoryController {
       next(error);
     }
   }
-  async deleteCategoryController(req, res, next) {
+  async deleteCategory(req, res, next) {
     try {
       await this.categoryService.deleteCategory(req.params.id);
       res.status(200).json({ message: "success" });

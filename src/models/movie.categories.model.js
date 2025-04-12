@@ -12,7 +12,4 @@ const MovieCategoriesSchema = new Schema(
   { versionKey: false, timestamps: true }
 );
 
-export const MovieCategoriesModel = mongoose.model(
-  "MovieCategories",
-  MovieCategoriesSchema
-);
+export const MovieCategoriesModel = mongoose.model("MovieCategories", MovieCategoriesSchema);

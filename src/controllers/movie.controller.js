@@ -4,7 +4,7 @@ class MovieController {
   constructor() {
     this.movieService = new MovieService();
   }
-  async addMovieController(req, res, next) {
+  async addMovie(req, res, next) {
     try {
       const data = req.body;
       await this.movieService.addMovie(data);
@@ -13,7 +13,7 @@ class MovieController {
       next(error);
     }
   }
-  async getAllMoviesController(req, res, next) {
+  async getAllMovies(req, res, next) {
     try {
       const data = await this.movieService.getAllMovies();
       res.status(200).json(data);
@@ -21,7 +21,7 @@ class MovieController {
       next(error);
     }
   }
-  async getOneMovieController(req, res, next) {
+  async getOneMovie(req, res, next) {
     try {
       const data = await this.movieService.getOneMovie(req.params.id);
       res.status(200).json(data);
@@ -29,16 +29,16 @@ class MovieController {
       next(error);
     }
   }
-  async updateMovieController(req, res, next) {
+  async updateMovie(req, res, next) {
     try {
       const body = req.body;
-      const data = await this.movieService.updatemovie(req.params.id, body);
+      const data = await this.movieService.updateMovie(req.params.id, body);
       res.status(201).json({ message: "success", data });
     } catch (error) {
       next(error);
     }
   }
-  async deleteMovieController(req, res, next) {
+  async deleteMovie(req, res, next) {
     try {
       await this.movieService.deleteMovie(req.params.id);
       res.status(200).json({ message: "success" });

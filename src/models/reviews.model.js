@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const RewievsSchema = new Schema(
+const ReviewsSchema = new Schema(
   {
     movie_id: { type: Schema.Types.ObjectId, required: true, ref: "Movies" },
     user_id: { type: Schema.Types.ObjectId, required: true, ref: "Users" },
@@ -10,4 +10,4 @@ const RewievsSchema = new Schema(
   { versionKey: false, timestamps: true }
 );
 
-export const RewievsModel = mongoose.model("Rewievs", RewievsSchema);
+export const ReviewsModel = mongoose.model("Reviews", ReviewsSchema);

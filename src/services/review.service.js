@@ -1,10 +1,10 @@
-import { RewievsModel } from "../models/rewievs.model.js";
+import { ReviewsModel,} from "../models/reviews.model.js";
 
-class RewievService {
+class ReviewService {
   constructor() {
-    this.model = RewievsModel;
+    this.model = ReviewsModel;
   }
-  async createRewievs(data) {
+  async createReviews(data) {
     const ans = await this.model.create(data);
     return ans;
   }
@@ -17,4 +17,4 @@ class RewievService {
   }
 }
 
-export default RewievService;
+export default ReviewService;
